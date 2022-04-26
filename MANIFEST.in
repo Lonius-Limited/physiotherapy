@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include physiotherapy *.css
+recursive-include physiotherapy *.csv
+recursive-include physiotherapy *.html
+recursive-include physiotherapy *.ico
+recursive-include physiotherapy *.js
+recursive-include physiotherapy *.json
+recursive-include physiotherapy *.md
+recursive-include physiotherapy *.png
+recursive-include physiotherapy *.py
+recursive-include physiotherapy *.svg
+recursive-include physiotherapy *.txt
+recursive-exclude physiotherapy *.pyc
