@@ -1,0 +1,488 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-04-26 12:03:47.895183",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "patient",
+  "patient_name",
+  "respiration_section",
+  "respiratory_rate",
+  "chest_symmetry",
+  "column_break_6",
+  "chest_expansion",
+  "auscultation",
+  "cardiovascular_section",
+  "blood_pressure",
+  "pulse",
+  "finger_clubbing",
+  "haemoglobin_levels",
+  "oedema",
+  "column_break_12",
+  "1st_heart_sound",
+  "2nd_heart_sound",
+  "column_break_18",
+  "palour",
+  "jaundice",
+  "neurological_section",
+  "gcr_normal",
+  "gcr_scale",
+  "memory",
+  "communication",
+  "cognition",
+  "attention",
+  "column_break_28",
+  "perceptions_table",
+  "column_break_30",
+  "special_senses",
+  "sensation",
+  "muscle_power_affected_q",
+  "muscle_power_affected",
+  "reflexes_and_movement_section",
+  "reflexes_affected_q",
+  "reflexes_affected",
+  "posture",
+  "coordination",
+  "coordination_tests_table",
+  "gait_examination",
+  "gait_examination_tests_table",
+  "muscle_tone_affected",
+  "muscle_tone_affected_areas",
+  "balance",
+  "musculoskeletal_section",
+  "muscle_girth",
+  "musculoskeletal_range_of_motion",
+  "limb_length",
+  "integumentary_system_section",
+  "skin_condition",
+  "hair_condition",
+  "nails_condition",
+  "urinary_system_section",
+  "incontinence",
+  "function_activities",
+  "assistive_devices_necessary",
+  "assistive_devices_table",
+  "treatment_plan_section",
+  "add_a_treatment_plan",
+  "treatment_plans_table",
+  "review_section",
+  "pain_scale",
+  "muscle_power",
+  "range_of_motion_review"
+ ],
+ "fields": [
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "patient.patient_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient Name",
+   "read_only": 1
+  },
+  {
+   "description": "Fill if applicable",
+   "fieldname": "respiration_section",
+   "fieldtype": "Section Break",
+   "label": "Respiration"
+  },
+  {
+   "fieldname": "respiratory_rate",
+   "fieldtype": "Select",
+   "label": "Respiratory Rate",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "chest_symmetry",
+   "fieldtype": "Select",
+   "label": "Chest Symmetry",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "chest_expansion",
+   "fieldtype": "Select",
+   "label": "Chest Expansion",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "auscultation",
+   "fieldtype": "Select",
+   "label": "Auscultation",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "cardiovascular_section",
+   "fieldtype": "Section Break",
+   "label": "Cardiovascular"
+  },
+  {
+   "fieldname": "blood_pressure",
+   "fieldtype": "Select",
+   "label": "Blood Pressure",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "pulse",
+   "fieldtype": "Select",
+   "label": "Pulse",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "finger_clubbing",
+   "fieldtype": "Select",
+   "label": "Finger Clubbing",
+   "options": "Not Affected\nAffected"
+  },
+  {
+   "fieldname": "haemoglobin_levels",
+   "fieldtype": "Select",
+   "label": "Haemoglobin Levels",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "oedema",
+   "fieldtype": "Select",
+   "label": "Oedema",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "1st_heart_sound",
+   "fieldtype": "Select",
+   "label": "1st Heart Sound",
+   "options": "Normal\nQuiet\nLoud"
+  },
+  {
+   "fieldname": "2nd_heart_sound",
+   "fieldtype": "Select",
+   "label": "2nd Heart Sound",
+   "options": "Normal\nQuiet\nLoud\nWide Splitting\nFixed Splitting\nReverse Splitting"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "palour",
+   "fieldtype": "Select",
+   "label": "Palour",
+   "options": "Absent\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "jaundice",
+   "fieldtype": "Select",
+   "label": "Jaundice",
+   "options": "Absent\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "neurological_section",
+   "fieldtype": "Section Break",
+   "label": "Neurological"
+  },
+  {
+   "default": "1",
+   "fieldname": "gcr_normal",
+   "fieldtype": "Check",
+   "label": "Glascow Coma Recovery Normal?"
+  },
+  {
+   "depends_on": "eval:!doc.gcr_normal",
+   "fieldname": "gcr_scale",
+   "fieldtype": "Select",
+   "label": "Glascow Coma Recovery Scale",
+   "mandatory_depends_on": "eval:!doc.gcr_normal",
+   "options": "\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15"
+  },
+  {
+   "fieldname": "memory",
+   "fieldtype": "Select",
+   "label": "Memory ",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "description": "Affected = Aphasia",
+   "fieldname": "communication",
+   "fieldtype": "Select",
+   "label": "Communication",
+   "options": "Not Affected\nExpressive\nComprehensive\nGlobal"
+  },
+  {
+   "fieldname": "cognition",
+   "fieldtype": "Select",
+   "label": "Cognition",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "attention",
+   "fieldtype": "Select",
+   "label": "Attention",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "column_break_28",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Click add row to add perceptions appropriately",
+   "fieldname": "perceptions_table",
+   "fieldtype": "Table",
+   "label": "Perception",
+   "options": "Patient Assessment Form Perception"
+  },
+  {
+   "fieldname": "column_break_30",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "special_senses",
+   "fieldtype": "Select",
+   "label": "Special Senses(Cranial Nerves)",
+   "options": "Not Affected\nI\nII\nIII\nIV\nV\nVI\nVII\nVIII\nIX\nX\nXI\nXI\nXII\nXIII"
+  },
+  {
+   "fieldname": "sensation",
+   "fieldtype": "Select",
+   "label": "Sensation",
+   "options": "Absent\nDeep\nSuperficial\nCortical"
+  },
+  {
+   "depends_on": "eval:doc.muscle_power_affected_q",
+   "fieldname": "muscle_power_affected",
+   "fieldtype": "Table",
+   "label": "Muscle Power Affected",
+   "mandatory_depends_on": "eval:doc.muscle_power_affected_q",
+   "options": "Patient Assessment Form Muscle Power"
+  },
+  {
+   "default": "0",
+   "fieldname": "muscle_power_affected_q",
+   "fieldtype": "Check",
+   "label": "Muscle Power Affected"
+  },
+  {
+   "fieldname": "reflexes_and_movement_section",
+   "fieldtype": "Section Break",
+   "label": "Reflexes and Movement"
+  },
+  {
+   "default": "0",
+   "fieldname": "reflexes_affected_q",
+   "fieldtype": "Check",
+   "label": "Reflexes Affected ?"
+  },
+  {
+   "depends_on": "eval:doc.reflexes_affected_q",
+   "fieldname": "reflexes_affected",
+   "fieldtype": "Table",
+   "label": "Reflexes Affected",
+   "options": "Patient Assessment Form Reflexes"
+  },
+  {
+   "fieldname": "posture",
+   "fieldtype": "Select",
+   "label": "Posture",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "coordination",
+   "fieldtype": "Select",
+   "label": "Coordination",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "depends_on": "eval:doc.coordination!='Not Affected'",
+   "fieldname": "coordination_tests_table",
+   "fieldtype": "Table",
+   "label": "Coordination Tests",
+   "options": "Patient Assessment Form Coordination Test"
+  },
+  {
+   "fieldname": "gait_examination",
+   "fieldtype": "Select",
+   "label": "Gait Examination",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "depends_on": "eval:doc.gait_examination!=='Not Affected'",
+   "fieldname": "gait_examination_tests_table",
+   "fieldtype": "Table",
+   "label": "Gait Examination Tests",
+   "options": "Patient Assessment Form Gait Examination Test"
+  },
+  {
+   "default": "0",
+   "fieldname": "muscle_tone_affected",
+   "fieldtype": "Check",
+   "label": "Muscle Tone Affected?"
+  },
+  {
+   "depends_on": "eval:doc.muscle_tone_affected",
+   "fieldname": "muscle_tone_affected_areas",
+   "fieldtype": "Table",
+   "label": "Muscle Tone Affected Areas",
+   "options": "Patient Assessment Form Muscle Tone"
+  },
+  {
+   "fieldname": "balance",
+   "fieldtype": "Select",
+   "label": "Balance",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "musculoskeletal_section",
+   "fieldtype": "Section Break",
+   "label": "Musculoskeletal "
+  },
+  {
+   "fieldname": "muscle_girth",
+   "fieldtype": "Select",
+   "label": "Muscle Girth",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "musculoskeletal_range_of_motion",
+   "fieldtype": "Select",
+   "label": "Musculoskeletal Range of Motion",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "limb_length",
+   "fieldtype": "Select",
+   "label": "Limb Length",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "integumentary_system_section",
+   "fieldtype": "Section Break",
+   "label": "Integumentary System"
+  },
+  {
+   "fieldname": "skin_condition",
+   "fieldtype": "Select",
+   "label": "Skin Condition",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "hair_condition",
+   "fieldtype": "Select",
+   "label": "Hair Condition",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "nails_condition",
+   "fieldtype": "Select",
+   "label": "Nails Condition",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "urinary_system_section",
+   "fieldtype": "Section Break",
+   "label": "Urinary System"
+  },
+  {
+   "fieldname": "incontinence",
+   "fieldtype": "Select",
+   "label": "Incontinence",
+   "options": "Absent\nPresent"
+  },
+  {
+   "fieldname": "function_activities",
+   "fieldtype": "Select",
+   "label": "Function Activities",
+   "options": "Not Affected\nMild\nModerate\nSevere"
+  },
+  {
+   "default": "0",
+   "fieldname": "assistive_devices_necessary",
+   "fieldtype": "Check",
+   "label": "Assistive Devices Necessary?"
+  },
+  {
+   "depends_on": "eval:doc.assistive_devices_necessary",
+   "description": "Tick Where Applicable",
+   "fieldname": "assistive_devices_table",
+   "fieldtype": "Table",
+   "label": "Assistive Devices",
+   "options": "Patient Assessment Form Assistive Devices"
+  },
+  {
+   "fieldname": "treatment_plan_section",
+   "fieldtype": "Section Break",
+   "label": "Treatment Plan"
+  },
+  {
+   "fieldname": "add_a_treatment_plan",
+   "fieldtype": "Button",
+   "label": "Add a treatment plan"
+  },
+  {
+   "fieldname": "review_section",
+   "fieldtype": "Section Break",
+   "label": "Review"
+  },
+  {
+   "fieldname": "pain_scale",
+   "fieldtype": "Select",
+   "label": "Pain Scale",
+   "options": "\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10"
+  },
+  {
+   "fieldname": "muscle_power",
+   "fieldtype": "Select",
+   "label": "Muscle Power",
+   "options": "\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10"
+  },
+  {
+   "fieldname": "range_of_motion_review",
+   "fieldtype": "Int",
+   "label": "Range of Motion(0-180)",
+   "non_negative": 1,
+   "options": "\n"
+  },
+  {
+   "fieldname": "treatment_plans_table",
+   "fieldtype": "Table",
+   "label": "Treatment Plans",
+   "options": "Patient Assessment Form Treatment Plan"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-04-28 14:21:52.182065",
+ "modified_by": "Administrator",
+ "module": "Physiotherapy",
+ "name": "Patient Assessment Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "patient_name"
+}

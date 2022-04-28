@@ -1,0 +1,47 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-04-28 12:47:47.178880",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "assistive_device",
+  "required",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "assistive_device",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Assistive Device",
+   "options": "Patient Assessment Form Attribute",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "required",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Device Required?"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-04-28 13:21:36.344963",
+ "modified_by": "Administrator",
+ "module": "Physiotherapy",
+ "name": "Patient Assessment Form Assistive Devices",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -1,0 +1,49 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-04-28 14:00:08.047209",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "treatment_plan",
+  "start_date",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "treatment_plan",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Treatment Plan",
+   "options": "Therapy Plan"
+  },
+  {
+   "fetch_from": "treatment_plan.start_date",
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "treatment_plan.status",
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Status",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-04-28 14:29:37.474230",
+ "modified_by": "Administrator",
+ "module": "Physiotherapy",
+ "name": "Patient Assessment Form Treatment Plan",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

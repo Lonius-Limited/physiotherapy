@@ -1,0 +1,55 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-04-27 19:02:39.024042",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "test_type",
+  "test_category",
+  "assessment",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "test_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Test Type",
+   "options": "Patient Assessment Form Attribute"
+  },
+  {
+   "fetch_from": "test_type.parent_patient_assessment_form_attribute",
+   "fieldname": "test_category",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Test Category",
+   "read_only": 1
+  },
+  {
+   "fieldname": "assessment",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Assessment",
+   "options": "\nPass\nFail"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-04-27 20:11:32.225495",
+ "modified_by": "Administrator",
+ "module": "Physiotherapy",
+ "name": "Patient Assessment Form Coordination Test",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

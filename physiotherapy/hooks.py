@@ -95,13 +95,16 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	# "*": {
+	# 	"on_update": "method",
+	# 	"on_cancel": "method",
+	# 	"on_trash": "method"
+	# }
+	"Therapy Plan":{
+		"before_save":"physiotherapy.append_assessment_form"
+	}
+}
 
 # Scheduled Tasks
 # ---------------
@@ -186,3 +189,23 @@ user_data_fields = [
 # Recommended only for DocTypes which have limited documents with untranslated names
 # For example: Role, Gender, etc.
 # translated_search_doctypes = []
+fixtures =["Web Page","Patient Assessment Form Attribute","Body Part"]
+jenv = {
+	"methods": [
+		"get_official_email:physiotherapy.official_email",
+		"get_official_mobile:physiotherapy.official_mobile",
+		"why_us:physiotherapy.why_us",
+		"proven_evaluation_methods:physiotherapy.proven_evaluation_methods",
+		"patient_education:physiotherapy.patient_education",
+		"tailored_treatment_plans:physiotherapy.tailored_treatment_plans",
+		"about_header:physiotherapy.about_header",
+		"about_first_paragraph:physiotherapy.about_first_paragraph",
+		"about_manage_your_pain:physiotherapy.about_manage_your_pain",
+		"about_move_better_after_surgery:physiotherapy.about_move_better_after_surgery",
+		"about_improve_your_health:physiotherapy.about_improve_your_health",
+		"services_section:physiotherapy.services_section",
+		"gallery_section:physiotherapy.gallery_section",
+		"socials_section:physiotherapy.socials_section"
+	]
+}
+
