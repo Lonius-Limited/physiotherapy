@@ -34,6 +34,7 @@
   "cognition",
   "attention",
   "column_break_28",
+  "perception_status",
   "perceptions_table",
   "column_break_30",
   "special_senses",
@@ -238,6 +239,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:doc.perception_status !== 'Not Affected'",
    "description": "Click add row to add perceptions appropriately",
    "fieldname": "perceptions_table",
    "fieldtype": "Table",
@@ -302,7 +304,7 @@
    "fieldname": "coordination",
    "fieldtype": "Select",
    "label": "Coordination",
-   "options": "Not Affected\nMild\nModerate\nSevere"
+   "options": "Not Affected\nAffected"
   },
   {
    "depends_on": "eval:doc.coordination!='Not Affected'",
@@ -315,7 +317,7 @@
    "fieldname": "gait_examination",
    "fieldtype": "Select",
    "label": "Gait Examination",
-   "options": "Not Affected\nMild\nModerate\nSevere"
+   "options": "Not Affected\nAffected"
   },
   {
    "depends_on": "eval:doc.gait_examination!=='Not Affected'",
@@ -459,11 +461,18 @@
    "fieldtype": "Table",
    "label": "Treatment Plans",
    "options": "Patient Assessment Form Treatment Plan"
+  },
+  {
+   "default": "Not Affected",
+   "fieldname": "perception_status",
+   "fieldtype": "Select",
+   "label": "Perception ",
+   "options": "Not Affected\nAffected"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-28 14:21:52.182065",
+ "modified": "2022-05-04 20:26:00.032828",
  "modified_by": "Administrator",
  "module": "Physiotherapy",
  "name": "Patient Assessment Form",

@@ -1,0 +1,89 @@
+{
+ "category": "Modules",
+ "charts": [],
+ "creation": "2022-05-05 22:36:31.395056",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "label": "Physiotherapy",
+ "links": [],
+ "modified": "2022-05-05 23:10:31.426363",
+ "modified_by": "Administrator",
+ "module": "Physiotherapy",
+ "name": "Physiotherapy",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 1,
+ "shortcuts": [
+  {
+   "color": "#761ACB",
+   "doc_view": "List",
+   "format": "{} Clerked Patients",
+   "label": "Patients",
+   "link_to": "Patient",
+   "stats_filter": "{\n    \"status\":\"Active\"\n}",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Therapy Plans",
+   "link_to": "Therapy Plan",
+   "type": "DocType"
+  },
+  {
+   "color": "#4F9DD9",
+   "doc_view": "List",
+   "format": "{} Form(s)",
+   "label": "Assessment Forms",
+   "link_to": "Patient Assessment Form",
+   "stats_filter": "{\n    \"docstatus\": [\"!=\",\"2\"]\n}",
+   "type": "DocType"
+  },
+  {
+   "color": "#449CF0",
+   "doc_view": "List",
+   "format": "{} Stock Items",
+   "label": "Consumables and Stock",
+   "link_to": "Item",
+   "stats_filter": "{\n    \"is_stock_item\": 1\n}",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "format": "{} Assets",
+   "label": "Company Assets",
+   "link_to": "Asset",
+   "stats_filter": "{\n    \"company\":[\"!=\",\"\"]\n}",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "format": "{} Dispatched Orders",
+   "label": "Order for Materials",
+   "link_to": "Purchase Order",
+   "stats_filter": "{\n    \"docstatus\": 1\n}",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Receive Purchased Goods",
+   "link_to": "Purchase Receipt",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "format": "{} Active",
+   "label": "My Vendors",
+   "link_to": "Supplier",
+   "stats_filter": "{\n    \"disabled\": 1\n}",
+   "type": "DocType"
+  }
+ ],
+ "shortcuts_label": "Physical Therapy Practice"
+}

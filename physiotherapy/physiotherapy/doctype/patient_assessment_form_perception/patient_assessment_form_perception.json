@@ -6,7 +6,8 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "perception"
+  "perception",
+  "affected"
  ],
  "fields": [
   {
@@ -15,12 +16,19 @@
    "in_list_view": 1,
    "label": "Perception",
    "options": "Patient Assessment Form Attribute"
+  },
+  {
+   "default": "0",
+   "fieldname": "affected",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Affected"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-04-26 15:33:32.940406",
+ "modified": "2022-05-04 20:28:05.769938",
  "modified_by": "Administrator",
  "module": "Physiotherapy",
  "name": "Patient Assessment Form Perception",

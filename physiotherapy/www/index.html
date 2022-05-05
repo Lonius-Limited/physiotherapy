@@ -10,11 +10,14 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="/assets/physiotherapy/img/favicon.png" rel="icon">
+  <link href="/assets/physiotherapy/img/favicon.ico" rel="icon">
+  <!-- <link href="https://www.flaticon.com/free-icons/spine" title="spine icons" rel="icon"> -->
   <link href="/assets/physiotherapy/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="/assets/physiotherapy/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -90,7 +93,8 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
+      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span>
+        Appointment</a>
       <!-- <a href="/app" class="appointment-btn scrollto" style="color: orange !important;"><span class="d-none d-md-inline">MedPark</span> Portal</a> -->
 
     </div>
@@ -114,7 +118,7 @@
         <div class="row">
           <div class="col-lg-4 d-flex align-items-stretch">
             <div class="content">
-              
+
               {{ why_us() }}
               <!-- <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
@@ -163,9 +167,10 @@
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
           </div>
 
-          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
-            
-            
+          <div
+            class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+
+
             {{ about_header() }}
             {{ about_first_paragraph() }}
 
@@ -191,11 +196,33 @@
     </section><!-- End About Section -->
 
     <!-- ======= Counts Section ======= -->
-    
+
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
-      {{ services_section() }}
+      <div class="container">
+        <div class="section-title">
+          <h2>Conditions We treat</h2>
+        </div>
+        <p>Click on the areas highlighted on the body diagram for information on common conditions we treat and how
+          therapy at <em>Medical Park Physical Therapy</em> can help you achieve a pain-free life</p>
+
+        <!-- {{ services_section() }} -->
+        <div id="row">
+          {% for service in all_services() -%}
+          <div class="col-lg-3 col-md-4">
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-medkit"></i></div>
+              {% set full_url = 'conditions_we_treat/' ~ service.webpage_location %}
+              
+              <h4><a href={{ full_url }}>{{ service.complaints }}</a></h4>
+              <p>{{service.description}}</p>
+            </div>
+          </div>
+          <!-- {{ services_section() }} -->
+          {% endfor %}
+        </div>
+      </div>
     </section><!-- End Services Section -->
 
     <!-- ======= Appointment Section ======= -->
@@ -207,66 +234,72 @@
           <p>Is your pain making it difficult for you to concentrate?
             Are you hoping it will just go away but it’s still hurting you?
             .</p>
-            <em>If you answered Yes to any or all of this questions please contact us on <b style="color:blue">{{ get_official_mobile() }}</b> or fill out this form and we will be glad to listen to you and schedule you appropriately.</em>
+          <em>If you answered Yes to any or all of this questions please contact us on <b style="color:blue">{{
+              get_official_mobile() }}</b> or fill out this form and we will be glad to listen to you and schedule you
+            appropriately.</em>
         </div>
 
         <!-- <form action="forms/appointment.php" method="post" role="form" class="php-email-form"> -->
-          <div class="row">
-            <div class="col-md-4 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 form-group mt-3">
-              <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3">
-              <select name="department" id="department" class="form-select">
-                <option value="">Select Department</option>
-                <option value="Department 1">Department 1</option>
-                <option value="Department 2">Department 2</option>
-                <option value="Department 3">Department 3</option>
-              </select>
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3">
-              <select name="doctor" id="doctor" class="form-select">
-                <option value="">Select Doctor</option>
-                <option value="Doctor 1">Doctor 1</option>
-                <option value="Doctor 2">Doctor 2</option>
-                <option value="Doctor 3">Doctor 3</option>
-              </select>
-              <div class="validate"></div>
-            </div>
-          </div>
-
-          <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
+        <div class="row">
+          <div class="col-md-4 form-group">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4"
+              data-msg="Please enter at least 4 chars">
             <div class="validate"></div>
           </div>
-          <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
+          <div class="col-md-4 form-group mt-3 mt-md-0">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email"
+              data-msg="Please enter a valid email">
+            <div class="validate"></div>
           </div>
-          <div  class="text-center"><button class="make_appointment_btn">Make an Appointment</button></div>
+          <div class="col-md-4 form-group mt-3 mt-md-0">
+            <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4"
+              data-msg="Please enter at least 4 chars">
+            <div class="validate"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 form-group mt-3">
+            <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date"
+              data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            <div class="validate"></div>
+          </div>
+          <div class="col-md-4 form-group mt-3">
+            <select name="department" id="department" class="form-select">
+              <option value="">Select Department</option>
+              <option value="Department 1">Department 1</option>
+              <option value="Department 2">Department 2</option>
+              <option value="Department 3">Department 3</option>
+            </select>
+            <div class="validate"></div>
+          </div>
+          <div class="col-md-4 form-group mt-3">
+            <select name="doctor" id="doctor" class="form-select">
+              <option value="">Select Doctor</option>
+              <option value="Doctor 1">Doctor 1</option>
+              <option value="Doctor 2">Doctor 2</option>
+              <option value="Doctor 3">Doctor 3</option>
+            </select>
+            <div class="validate"></div>
+          </div>
+        </div>
+
+        <div class="form-group mt-3">
+          <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
+          <div class="validate"></div>
+        </div>
+        <div class="mb-3">
+          <div class="loading">Loading</div>
+          <div class="error-message"></div>
+          <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
+        </div>
+        <div class="text-center"><button class="make_appointment_btn">Make an Appointment</button></div>
         <!-- </form> -->
 
       </div>
     </section><!-- End Appointment Section -->
 
     <!-- ======= Departments Section ======= -->
-    
+
 
     <!-- ======= Gallery Section ======= -->
     <section id="gallery" class="gallery">
@@ -274,7 +307,7 @@
 
         <div class="section-title">
           <h2>Gallery</h2>
-          
+
         </div>
       </div>
 
@@ -287,7 +320,7 @@
     </section><!-- End Gallery Section -->
 
     <!-- ======= Contact Section ======= -->
-   
+
 
   </main><!-- End #main -->
 
@@ -298,7 +331,7 @@
       <div class="container">
         <div class="row">
 
-          <div id ="contact-card" class="col-lg-3 col-md-6 footer-contact">
+          <div id="contact-card" class="col-lg-3 col-md-6 footer-contact">
             <h3>Medical Park Physical Therapy</h3>
             <p>
               Sagaas Building 3rd Floor <br>
@@ -365,8 +398,18 @@
   </footer><!-- End Footer -->
 
   <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+  <!--Modal-->
+  <!-- <a href="javascript:">Click me</a> -->
 
+  <div id="conditionsmodal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        ...
+      </div>
+    </div>
+  </div>
   <!-- Vendor JS Files -->
   <script src="/assets/physiotherapy/vendor/purecounter/purecounter.js"></script>
   <script src="/assets/physiotherapy/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -376,6 +419,12 @@
 
   <!-- Template Main JS File -->
   <script src="/assets/physiotherapy/js/main.js"></script>
+
+  <script type="text/javascript">
+    const symptomDialog =(html)=>{
+      $('#conditionsmodal .modal-content').load(html,function(e){$('#conditionsmodal').modal('show');});
+    }
+  </script>
   <!-- <script>
     {% include "templates/includes/physiotherapy_site.js" %}
   </script> -->

@@ -32,7 +32,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Assessment",
-   "options": "\nPass\nFail"
+   "options": "\nMild\nModerate\nSevere"
   },
   {
    "fieldname": "remarks",
@@ -44,7 +44,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-04-27 20:12:34.122646",
+ "modified": "2022-05-04 16:34:47.411881",
  "modified_by": "Administrator",
  "module": "Physiotherapy",
  "name": "Patient Assessment Form Gait Examination Test",

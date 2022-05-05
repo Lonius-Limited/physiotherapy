@@ -204,8 +204,13 @@ jenv = {
 		"about_move_better_after_surgery:physiotherapy.about_move_better_after_surgery",
 		"about_improve_your_health:physiotherapy.about_improve_your_health",
 		"services_section:physiotherapy.services_section",
+		"all_services:physiotherapy.all_services",
 		"gallery_section:physiotherapy.gallery_section",
-		"socials_section:physiotherapy.socials_section"
+		"socials_section:physiotherapy.socials_section",
+		"conditions_we_treat:physiotherapy.conditions_we_treat"
 	]
 }
 
+# website_route_rules = [
+#     {"from_route": "/conditions_we_treat/<name>", "to_route": "app/complaint/complaint"},
+# ]

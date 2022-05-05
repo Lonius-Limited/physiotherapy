@@ -51,6 +51,16 @@ def socials_section():
 @frappe.whitelist()
 def services_section():
     return frappe.get_value('Web Page','services-section','main_section_html') or '<em>Content Loading</em>'
+@frappe.whitelist()
+def conditions_we_treat():
+    return frappe.get_value('Web Page','conditions-we-treat','main_section_html') or '<em>Content Loading</em>'
+@frappe.whitelist()
+def all_services():
+    conditions = frappe.get_all('Complaint',filters=dict(is_physiotherapy_condition=1),fields=['*']) or [dict(complaints='<em>Content Unavailable</em>', data_html='<em>Content Unavailable</em>')]
+    if conditions[0].get("complaints") == '<em>Content Loading</em>': return conditions
+    for condition in conditions:
+        condition['data_html'] = frappe.get_value('Web Page',condition.get("web_page"),'main_section_html')
+    return conditions
 def append_assessment_form(doc,state):
     # if not doc.get_doc_before_save: return
     name,status,start_date = doc.name, doc.status, doc.start_date
