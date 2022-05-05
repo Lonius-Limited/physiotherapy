@@ -56,7 +56,7 @@ def conditions_we_treat():
     return frappe.get_value('Web Page','conditions-we-treat','main_section_html') or '<em>Content Loading</em>'
 @frappe.whitelist()
 def all_services():
-    conditions = frappe.get_all('Complaint',filters=dict(is_physiotherapy_condition=1),fields=['*']) or [dict(complaints='<em>Content Unavailable</em>', data_html='<em>Content Unavailable</em>')]
+    conditions = frappe.get_all('Complaint',filters=dict(is_physiotherapy_condition=1),fields=['*']) or [dict(complaints='<em>Content Unavailable</em>',description="This means that no data is set up yet", data_html='<em>Content Unavailable</em>')]
     if conditions[0].get("complaints") == '<em>Content Loading</em>': return conditions
     for condition in conditions:
         condition['data_html'] = frappe.get_value('Web Page',condition.get("web_page"),'main_section_html')
