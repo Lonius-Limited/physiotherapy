@@ -13,7 +13,7 @@
  "is_standard": 1,
  "label": "Physiotherapy",
  "links": [],
- "modified": "2022-05-05 23:10:31.426363",
+ "modified": "2022-05-06 00:15:32.961903",
  "modified_by": "Administrator",
  "module": "Physiotherapy",
  "name": "Physiotherapy",
@@ -63,6 +63,7 @@
    "type": "DocType"
   },
   {
+   "color": "#1c1111",
    "doc_view": "List",
    "format": "{} Dispatched Orders",
    "label": "Order for Materials",
@@ -77,11 +78,21 @@
    "type": "DocType"
   },
   {
+   "color": "#CB2929",
    "doc_view": "List",
    "format": "{} Active",
    "label": "My Vendors",
    "link_to": "Supplier",
    "stats_filter": "{\n    \"disabled\": 1\n}",
+   "type": "DocType"
+  },
+  {
+   "color": "#449CF0",
+   "doc_view": "List",
+   "format": "{} Posted",
+   "label": "Patient Invoices",
+   "link_to": "Sales Invoice",
+   "stats_filter": "{\n    \"docstatus\": 1\n}",
    "type": "DocType"
   }
  ],
