@@ -9,6 +9,10 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <!--JQUery CDN-->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
   <!-- Favicons -->
   <link href="/assets/physiotherapy/img/favicon.ico" rel="icon">
   <!-- <link href="https://www.flaticon.com/free-icons/spine" title="spine icons" rel="icon"> -->
@@ -19,6 +23,8 @@
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
     rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <!-- Vendor CSS Files -->
   <link href="/assets/physiotherapy/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link href="/assets/physiotherapy/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -32,6 +38,14 @@
   <!-- Template Main CSS File -->
   <link href="/assets/physiotherapy/css/style.css" rel="stylesheet">
 
+
+  <!--JQuery UI-->
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
   <!-- =======================================================
   * Template Name: Medilab - v4.7.1
   * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
@@ -41,12 +55,13 @@
 </head>
 
 <body>
-
+  {% set conditions_treated = all_services() %}
+  {% set crsf_token = webtoken() %}
   <!-- ======= Top Bar ======= -->
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope"></i> <a href="{{ get_official_email() }}">{{ get_official_email() }}</a>
+        <i class="bi bi-envelope"></i> <a href="mailto:{{ get_official_email() }}">{{ get_official_email() }}</a>
         <i class="bi bi-phone"></i> {{ get_official_mobile() }}
       </div>
       <div class="d-none d-lg-flex social-links align-items-center">
@@ -68,25 +83,7 @@
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Conditions we Treat</a></li>
-          <!-- <li><a class="nav-link scrollto" href="#departments">Departments</a></li> -->
-          <!-- <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li> -->
-          <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li> -->
+
           <li><a class="nav-link scrollto" href="#contact-card">Contact & Address </a></li>
           <li><a class="nav-link" style="border-color: red;" href="/app">MedPark Portal </a></li>
         </ul>
@@ -209,13 +206,14 @@
 
         <!-- {{ services_section() }} -->
         <div id="row">
-          {% for service in all_services() -%}
+          {% for service in conditions_treated -%}
           <div class="col-lg-3 col-md-4">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-medkit"></i></div>
               {% set full_url = 'conditions_we_treat/' ~ service.webpage_location %}
-              
-              <h4><a href={{ full_url }}>{{ service.complaints }}</a></h4>
+              {% set data_html = service.data_html %}
+
+              <h4><a onclick="symptomDialog('{{ service.name }}')">{{ service.complaints }}</a></h4>
               <p>{{service.description}}</p>
             </div>
           </div>
@@ -234,7 +232,7 @@
           <p>Is your pain making it difficult for you to concentrate?
             Are you hoping it will just go away but it’s still hurting you?
             .</p>
-          <em>If you answered Yes to any or all of this questions please contact us on <b style="color:blue">{{
+          <em>If you answered Yes to any or all of these questions please contact us on <b style="color:blue">{{
               get_official_mobile() }}</b> or fill out this form and we will be glad to listen to you and schedule you
             appropriately.</em>
         </div>
@@ -259,46 +257,36 @@
         </div>
         <div class="row">
           <div class="col-md-4 form-group mt-3">
-            <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date"
+            <input type="text" id="datepicker" class="form-control datepicker" placeholder="Appointment Date">
+            <!-- <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date"
               data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-            <div class="validate"></div>
+            <div class="validate"></div> -->
           </div>
-          <div class="col-md-4 form-group mt-3">
-            <select name="department" id="department" class="form-select">
-              <option value="">Select Department</option>
-              <option value="Department 1">Department 1</option>
-              <option value="Department 2">Department 2</option>
-              <option value="Department 3">Department 3</option>
-            </select>
-            <div class="validate"></div>
-          </div>
+        
           <div class="col-md-4 form-group mt-3">
             <select name="doctor" id="doctor" class="form-select">
               <option value="">Select Doctor</option>
-              <option value="Doctor 1">Doctor 1</option>
-              <option value="Doctor 2">Doctor 2</option>
-              <option value="Doctor 3">Doctor 3</option>
+              {% for doc in doctors_list() %}
+                <option value={{ doc.name }}>{{ doc.first_name ~ ' ' ~ doc.last_name }}</option>
+              {% endfor %}
+             
             </select>
             <div class="validate"></div>
           </div>
         </div>
 
         <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
+          <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message (Optional)"></textarea>
           <div class="validate"></div>
         </div>
-        <div class="mb-3">
-          <div class="loading">Loading</div>
-          <div class="error-message"></div>
-          <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
-        </div>
-        <div class="text-center"><button class="make_appointment_btn">Make an Appointment</button></div>
+        
+        <div class="text-center"><button class="btn btn-success" id="make_appointment_btn">Make an Appointment</button></div>
         <!-- </form> -->
 
       </div>
     </section><!-- End Appointment Section -->
 
-    <!-- ======= Departments Section ======= -->
+    
 
 
     <!-- ======= Gallery Section ======= -->
@@ -403,13 +391,16 @@
   <!--Modal-->
   <!-- <a href="javascript:">Click me</a> -->
 
-  <div id="conditionsmodal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+  <div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        ...
+
       </div>
     </div>
   </div>
+
   <!-- Vendor JS Files -->
   <script src="/assets/physiotherapy/vendor/purecounter/purecounter.js"></script>
   <script src="/assets/physiotherapy/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -419,12 +410,76 @@
 
   <!-- Template Main JS File -->
   <script src="/assets/physiotherapy/js/main.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
   <script type="text/javascript">
-    const symptomDialog =(html)=>{
-      $('#conditionsmodal .modal-content').load(html,function(e){$('#conditionsmodal').modal('show');});
+    $('document').ready(function(){
+
+      //alert('{{crsf_token | safe}}')
+     
+      $( "#datepicker" ).datepicker(
+        { 
+          format: 'dd/mm/yyyy',
+          startDate: 'today'
+        });
+      
+
+      $('#make_appointment_btn').click(function(){
+       // $('#make_appointment_btn').attr({'disabled':true})
+        let payload = {}
+        payload["fullname"] = $('#name').val() || "Not Provided"
+        payload["email"] = $('#email').val() 
+        payload["phone"] = $('#phone').val() 
+        payload["date"] = $('#datepicker').val() 
+        payload["doctor"] = $('#doctor').val() || ""
+        payload["message"] = $('#message').val() || ""
+        //alert(JSON.stringify(payload))
+        if(!payload["date"] || !payload["email"] || !payload["phone"]){
+          swal({
+            title: "Missing data",
+            text: "Sorry, Appointment Date, Email and Phone number are mandatory fields",
+            icon: "error",
+            button: "Okay",
+          });
+          throw "Sorry, appointment date, email and phone are mandatory fields"
+        }
+        $.ajax({
+          method: "GET",
+          url: "/",
+          data: {
+              cmd: "physiotherapy.api.data.post_appointment",
+              payload: JSON.stringify(payload)
+          },
+          dataType: "json",
+          async: false,
+          beforeSend: function(xhr){
+            xhr.setRequestHeader(
+            'X-Frappe-CSRF-Token', '{{crsf_token | safe}}'
+            )},
+          success: function (data) {
+            var response = data.message
+              swal({
+                title: response["title"],
+                text: response["text"],
+                icon: response["icon"],
+                button: response["button"],
+              });
+              $('#make_appointment_btn').attr({'disabled':false})
+          }
+      })
+        
+      })
+    })
+    function symptomDialog(serviceID) {
+
+      alert(serviceID)
+      window.location = '/conditions_we_treat?condition=' + serviceID;
+     
     }
   </script>
+
+
   <!-- <script>
     {% include "templates/includes/physiotherapy_site.js" %}
   </script> -->

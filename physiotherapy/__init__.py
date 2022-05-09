@@ -1,6 +1,15 @@
 
 __version__ = '0.0.1'
 import frappe
+import string
+import secrets
+@frappe.whitelist()
+def webtoken():
+    return frappe.generate_hash()
+def randchar():
+    alphabet = string.ascii_letters + string.digits
+    password = ''.join(secrets.choice(alphabet) for i in range(10))
+    return password.lower()
 @frappe.whitelist()
 def official_email():
     company = default_company()
@@ -55,11 +64,15 @@ def services_section():
 def conditions_we_treat():
     return frappe.get_value('Web Page','conditions-we-treat','main_section_html') or '<em>Content Loading</em>'
 @frappe.whitelist()
+def doctors_list():
+    return frappe.get_all("Healthcare Practitioner",filters=dict(status='Active'),fields=["*"], order_by="first_name ASC")
+@frappe.whitelist()
 def all_services():
-    conditions = frappe.get_all('Complaint',filters=dict(is_physiotherapy_condition=1),fields=['*']) or [dict(complaints='<em>Content Unavailable</em>',description="This means that no data is set up yet", webpage_location="#", data_html='<em>Content Unavailable</em>')]
+    conditions = frappe.get_all('Complaint',filters=dict(is_physiotherapy_condition=1),fields=['name','complaints','web_page','description','webpage_location']) or [dict(complaints='<em>Content Unavailable</em>',description="This means that no data is set up yet", webpage_location="#", data_html='<em>Content Unavailable</em>')]
     if conditions[0].get("complaints") == '<em>Content Loading</em>': return conditions
     for condition in conditions:
         condition['data_html'] = frappe.get_value('Web Page',condition.get("web_page"),'main_section_html')
+        condition['service_id'] = randchar()
     return conditions
 def append_assessment_form(doc,state):
     # if not doc.get_doc_before_save: return

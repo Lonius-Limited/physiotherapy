@@ -38,6 +38,10 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+    <!--JQuery CDN-->>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -84,8 +88,10 @@
     <!-- </div> -->
 
     <main id="main">
-        <section id="why-us" class="why-us">
-            <div class="container">
+        <!-- ======= Details Section ======= -->
+        <br><br>
+        <section id="services" class="services">
+            <div id="content_section"  class="container">
                 {%- block conditions_text -%}{%- endblock -%}
             </div>
         </section>
@@ -150,14 +156,6 @@
     <!--Modal-->
     <!-- <a href="javascript:">Click me</a> -->
 
-    <div id="conditionsmodal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-        aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                ...
-            </div>
-        </div>
-    </div>
     <!-- Vendor JS Files -->
     <script src="/assets/physiotherapy/vendor/purecounter/purecounter.js"></script>
     <script src="/assets/physiotherapy/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -168,14 +166,49 @@
     <!-- Template Main JS File -->
     <script src="/assets/physiotherapy/js/main.js"></script>
 
-    <script type="text/javascript">
-        const symptomDialog = (html) => {
-            $('#conditionsmodal .modal-content').load(html, function (e) { $('#conditionsmodal').modal('show'); });
+    <!-- <script src="/assets/frappe/js/lib/socket.io.min.js"></script>
+    <script type="text/javascript" src="/assets/js/frappe-web.min.js"></script> -->
+
+
+
+    <script>
+        $(document).ready(function () {
+
+            //Load the condition
+            let searchParams = new URLSearchParams(window.location.search)
+
+            let param = searchParams.get('condition')
+
+            //alert(param)
+
+            $.ajax({
+                method: "GET",
+                url: "/",
+                data: {
+                    cmd: "physiotherapy.api.data.condition_html",
+                    condition: param
+                },
+                dataType: "json",
+                async: false,
+                success: function (data) {
+                    //alert(data.message)
+                   // $("services-description").html("idfkjgjdkgn")
+
+                    $('#content_section').empty().append(data.message);
+
+
+
+                }
+            })
+
+
+            //End load condition
+        })
+        function clicked(html) {
+            alert("Clicked")
         }
+
     </script>
-    <!-- <script>
-    {% include "templates/includes/physiotherapy_site.js" %}
-  </script> -->
 
 
 

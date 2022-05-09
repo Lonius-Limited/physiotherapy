@@ -192,6 +192,7 @@ user_data_fields = [
 fixtures =["Web Page","Patient Assessment Form Attribute","Body Part"]
 jenv = {
 	"methods": [
+		"webtoken:physiotherapy.webtoken",
 		"get_official_email:physiotherapy.official_email",
 		"get_official_mobile:physiotherapy.official_mobile",
 		"why_us:physiotherapy.why_us",
@@ -207,7 +208,8 @@ jenv = {
 		"all_services:physiotherapy.all_services",
 		"gallery_section:physiotherapy.gallery_section",
 		"socials_section:physiotherapy.socials_section",
-		"conditions_we_treat:physiotherapy.conditions_we_treat"
+		"conditions_we_treat:physiotherapy.conditions_we_treat",
+		"doctors_list:physiotherapy.doctors_list"
 	]
 }
 
