@@ -13,7 +13,7 @@
  "is_standard": 1,
  "label": "Physiotherapy",
  "links": [],
- "modified": "2022-05-06 00:15:32.961903",
+ "modified": "2022-05-09 13:41:34.170001",
  "modified_by": "Administrator",
  "module": "Physiotherapy",
  "name": "Physiotherapy",
@@ -93,6 +93,15 @@
    "label": "Patient Invoices",
    "link_to": "Sales Invoice",
    "stats_filter": "{\n    \"docstatus\": 1\n}",
+   "type": "DocType"
+  },
+  {
+   "color": "#4463F0",
+   "doc_view": "List",
+   "format": "{} Unseen",
+   "label": "Online Appointment Requets",
+   "link_to": "Appointment Request",
+   "stats_filter": "{\n    \"status\": \"Pending\"\n}",
    "type": "DocType"
   }
  ],
