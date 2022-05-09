@@ -12,7 +12,7 @@
   "respiratory_rate",
   "chest_symmetry",
   "column_break_6",
-  "chest_expansion",
+  "chest_expansion_cm",
   "auscultation",
   "cardiovascular_section",
   "blood_pressure",
@@ -36,7 +36,6 @@
   "column_break_28",
   "perception_status",
   "perceptions_table",
-  "column_break_30",
   "special_senses",
   "sensation",
   "muscle_power_affected_q",
@@ -110,12 +109,6 @@
   {
    "fieldname": "column_break_6",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "chest_expansion",
-   "fieldtype": "Select",
-   "label": "Chest Expansion",
-   "options": "Not Affected\nMild\nModerate\nSevere"
   },
   {
    "fieldname": "auscultation",
@@ -247,10 +240,6 @@
    "options": "Patient Assessment Form Perception"
   },
   {
-   "fieldname": "column_break_30",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "special_senses",
    "fieldtype": "Select",
    "label": "Special Senses(Cranial Nerves)",
@@ -264,6 +253,7 @@
   },
   {
    "depends_on": "eval:doc.muscle_power_affected_q",
+   "description": "0 - No increase in tone\n\n1 - slight increase in tone giving a catch when slight increase in muscle tone, manifested by the limb was moved in flexion or extension.\n\n1+ slight increase in muscle tone, manifested by a catch followed by minimal resistance throughout (ROM )\n\n2 - more marked increase in tone but more marked increased in muscle tone through most limb easily flexed\n\n3 - considerable increase in tone, passive movement difficult\n4 - limb rigid in flexion or extension",
    "fieldname": "muscle_power_affected",
    "fieldtype": "Table",
    "label": "Muscle Power Affected",
@@ -468,11 +458,17 @@
    "fieldtype": "Select",
    "label": "Perception ",
    "options": "Not Affected\nAffected"
+  },
+  {
+   "fieldname": "chest_expansion_cm",
+   "fieldtype": "Int",
+   "label": "Chest Expansion (Extent in centimeters)",
+   "non_negative": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-04 20:26:00.032828",
+ "modified": "2022-05-09 15:31:00.436493",
  "modified_by": "Administrator",
  "module": "Physiotherapy",
  "name": "Patient Assessment Form",

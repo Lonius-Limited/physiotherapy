@@ -21,15 +21,16 @@
   {
    "fieldname": "extend_affected",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Extend Affected",
-   "options": "Mild\nModerate\nSevere",
+   "options": "\n4\n3\n2\n1\n0",
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-04-26 15:58:45.365906",
+ "modified": "2022-05-09 15:11:02.595238",
  "modified_by": "Administrator",
  "module": "Physiotherapy",
  "name": "Patient Assessment Form Muscle Power",

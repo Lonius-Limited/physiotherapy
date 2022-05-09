@@ -26,7 +26,7 @@ class AppointmentRequest(Document):
 		}
 
 		enqueue(method=frappe.sendmail, queue='short', timeout=300, **email_args)
-		frappe.msgprint(f"{email_args}")
+		# frappe.msgprint(f"{email_args}")
 		if frappe.db.get_value('SMS Settings', None, 'sms_gateway_url'):
 			send_sms(
 					receiver_list=[self.phone],

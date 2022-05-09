@@ -19,17 +19,19 @@
    "reqd": 1
   },
   {
+   "default": "Normal",
    "fieldname": "extend_affected",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Extend Affected",
-   "options": "Mild\nModerate\nSevere",
+   "options": "Hyperreflexia\nHyporeflexia\nNormal",
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-04-26 16:10:55.612048",
+ "modified": "2022-05-09 15:16:21.874667",
  "modified_by": "Administrator",
  "module": "Physiotherapy",
  "name": "Patient Assessment Form Reflexes",
