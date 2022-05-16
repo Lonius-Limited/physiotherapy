@@ -1,0 +1,23 @@
+CREATE DATABASE erpuser;
+
+GRANT ALL PRIVILEGES ON *.* TO 'erpuser'@'%' IDENTIFIED BY 'velo@2020' WITH GRANT OPTION;
+
+mysql --user erpuser --password velo@2020 --host=localhost --protocol=tcp --port=3306 test
+
+curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
+
+sudo chown erpuser -R /home/erpuser
+
+git clone https://github.com/frappe/bench /home/erpuser/.bench --depth 1 --branch master
+
+sudo pip3 install -e /home/erpuser/.bench
+
+bench init /home/erpuser/frappe-bench --frappe-path https://github.com/frappe/frappe --frappe-branch version-13 --python python3
+
+cd /home/erpuser/frappe-bench
+
+
+
+bench new-site dev.facility.com --admin-password 'velo@2020' --mariadb-root-username erpuser --mariadb-root-password 'velo@2020'
+
+bench get-app erpnext https://github.com/frappe/erpnext --branch version-13

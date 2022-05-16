@@ -23,14 +23,14 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Extend Affected",
-   "options": "Mild\nModerate\nSevere",
+   "options": "\n4\n3\n2\n1\n0",
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-04-27 20:22:41.549541",
+ "modified": "2022-05-16 10:26:36.707068",
  "modified_by": "Administrator",
  "module": "Physiotherapy",
  "name": "Patient Assessment Form Muscle Tone",

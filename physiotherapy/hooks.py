@@ -14,7 +14,7 @@ app_license = "MIT"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/physiotherapy/css/physiotherapy.css"
-# app_include_js = "/assets/physiotherapy/js/physiotherapy.js"
+app_include_js = ["/assets/physiotherapy/js/custom_scripts/patient.js"]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/physiotherapy/css/physiotherapy.css"

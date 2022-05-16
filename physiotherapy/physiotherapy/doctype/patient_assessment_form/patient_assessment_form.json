@@ -40,6 +40,7 @@
   "sensation",
   "muscle_power_affected_q",
   "muscle_power_affected",
+  "muscle_power_legend",
   "reflexes_and_movement_section",
   "reflexes_affected_q",
   "reflexes_affected",
@@ -50,6 +51,7 @@
   "gait_examination_tests_table",
   "muscle_tone_affected",
   "muscle_tone_affected_areas",
+  "html_46",
   "balance",
   "musculoskeletal_section",
   "muscle_girth",
@@ -253,7 +255,6 @@
   },
   {
    "depends_on": "eval:doc.muscle_power_affected_q",
-   "description": "0 - No increase in tone\n\n1 - slight increase in tone giving a catch when slight increase in muscle tone, manifested by the limb was moved in flexion or extension.\n\n1+ slight increase in muscle tone, manifested by a catch followed by minimal resistance throughout (ROM )\n\n2 - more marked increase in tone but more marked increased in muscle tone through most limb easily flexed\n\n3 - considerable increase in tone, passive movement difficult\n4 - limb rigid in flexion or extension",
    "fieldname": "muscle_power_affected",
    "fieldtype": "Table",
    "label": "Muscle Power Affected",
@@ -464,11 +465,22 @@
    "fieldtype": "Int",
    "label": "Chest Expansion (Extent in centimeters)",
    "non_negative": 1
+  },
+  {
+   "fieldname": "muscle_power_legend",
+   "fieldtype": "HTML",
+   "label": "Muscle Power Legend",
+   "options": "<table align=\"center\" bgcolor=\"#ffffff\" border=\"3\" cellpadding=\"3\" cellspacing=\"4\" width=\"70%\">\n\t<tbody><tr><td align=\"center\" colspan=\"3\"> <font face=\"arial\" size=\"2\"> Grading Scale Range: 0 to 5 </font></td></tr>\n\t<tr> <td><font face=\"arial\" size=\"2\"> 0 </font></td>\n\t<td> <li><font face=\"arial\" size=\"2\"> None </font></li></td>\n\t<td><font face=\"arial\" size=\"2\"> No visible or palpable contraction </font></td>\n\t</tr>\n\n\t<tr> <td><font face=\"arial\" size=\"2\"> 1 </font></td>\n\t<td> <li><font face=\"arial\" size=\"2\"> Trace </font></li></td>\n\t<td><font face=\"arial\" size=\"2\"> Visible or palpable contraction with no motion ( a 1 ) </font></td>\n\t</tr>\n\t<tr> <td><font face=\"arial\" size=\"2\"> 2 </font></td>\n\t<td> <li><font face=\"arial\" size=\"2\"> Poor </font></li></td>\n\t<td> <font face=\"arial\" size=\"2\">Full ROM gravity eliminated </font></td>\n        </tr>\n\t<tr> <td><font face=\"arial\" size=\"2\"> 3 </font></td>\n\t<td> <li><font face=\"arial\" size=\"2\"> Fair </font></li></td>\n\t<td> <font face=\"arial\" size=\"2\">Full ROM against gravity\n\t</font></td></tr>\n\t<tr> <td><font face=\"arial\" size=\"2\"> 4 </font></td>\n\t<td> <font face=\"arial\" size=\"2\"> <li> Good </li></font></td>\n\t<td> <font face=\"arial\" size=\"2\">Full ROM against gravity, moderate resistance\n\t</font></td></tr>\n\t<tr> <td><font face=\"arial\" size=\"2\"> 5 </font></td>\n\t<td> <li><font face=\"arial\" size=\"2\"> Normal </font></li></td>\n\t<td> <font face=\"arial\" size=\"2\">Full ROM against gravity, maximul resistance\n\t</font></td></tr>\n</tbody></table>"
+  },
+  {
+   "fieldname": "html_46",
+   "fieldtype": "HTML",
+   "options": "<ul><li class=\"half_rhythm\"><div>0: No increase in muscle tone</div></li><li class=\"half_rhythm\"><div>1: Slight increase in muscle tone, with a catch and release or minimal resistance at the end of the range of motion when an affected part(s) is moved in flexion or extension</div></li><li class=\"half_rhythm\"><div>1+: Slight increase in muscle tone, manifested as a catch, followed by minimal resistance through the remainder (less than half) of the range of motion</div></li><li class=\"half_rhythm\"><div>2: A marked increase in muscle tone throughout most of the range of motion, but affected part(s) are still easily moved</div></li><li class=\"half_rhythm\"><div>3: Considerable increase in muscle tone, passive movement difficult</div></li><li class=\"half_rhythm\"><div>4: Affected part(s) rigid in flexion or extension</div></li></ul>\n\n<p><cite>Harb A, Kishner S. Modified Ashworth Scale</cite>. [Updated 2021 May 9]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2022 Jan-. Available from: https://www.ncbi.nlm.nih.gov/books/NBK554572/ </p>"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-09 15:31:00.436493",
+ "modified": "2022-05-16 10:31:26.003849",
  "modified_by": "Administrator",
  "module": "Physiotherapy",
  "name": "Patient Assessment Form",
