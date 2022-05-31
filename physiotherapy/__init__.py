@@ -3,6 +3,9 @@ __version__ = '0.0.1'
 import frappe
 import string
 import secrets
+def retain_workspace():
+	print("Deleting unneccessary workspaces")
+	frappe.db.sql("DELETE FROM `tabWorkspace` WHERE module !='Physiotherapy'")
 @frappe.whitelist()
 def webtoken():
     return frappe.generate_hash()

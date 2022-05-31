@@ -58,6 +58,7 @@ app_include_js = ["/assets/physiotherapy/js/custom_scripts/patient.js"]
 
 # before_install = "physiotherapy.install.before_install"
 # after_install = "physiotherapy.install.after_install"
+after_migrate = "physiotherapy.retain_workspace"
 
 # Uninstallation
 # ------------

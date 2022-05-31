@@ -143,7 +143,7 @@
    "fieldname": "finger_clubbing",
    "fieldtype": "Select",
    "label": "Finger Clubbing",
-   "options": "Not Affected\nAffected"
+   "options": "Absent\nPresent"
   },
   {
    "fieldname": "haemoglobin_levels",
@@ -155,7 +155,7 @@
    "fieldname": "oedema",
    "fieldtype": "Select",
    "label": "Oedema",
-   "options": "Not Affected\nMild\nModerate\nSevere"
+   "options": "Absent\nPresent"
   },
   {
    "fieldname": "1st_heart_sound",
@@ -480,7 +480,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-16 10:31:26.003849",
+ "modified": "2022-05-17 12:03:12.415906",
  "modified_by": "Administrator",
  "module": "Physiotherapy",
  "name": "Patient Assessment Form",
